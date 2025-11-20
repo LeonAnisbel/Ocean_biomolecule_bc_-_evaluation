@@ -13,6 +13,8 @@
 > Biomolecule names: dissolved carboxylic acidic containing polysaccharides (PCHO), dissolved combined amino acids (DCAA), and polar lipids (PL)
 > 
 
+<br/>
+
 
 > ### Scripts under prepare_bc_data
 > 1. run *[Biomolecule_calculation.ipynb](prepare_bc_data/Biomolecule_calculation.ipynb)* to compute carbon ocean concentration of marine biomolecules. It also adds more explanatory attributes to the sst and sic data. This creates new netcdf files stored in *[orig_data](prepare_bc_data/orig_data)* folder.
@@ -34,10 +36,22 @@
 > 
 > * Use *[apply_mask.sh](prepare_bc_data/apply_mask.sh)* to create the sea ice mask used to compute OMF and biomolecules average values in sea ice free regions (SIC<10%). However, this is not necessary or used in the creation of the boundary conditions for ECHAM-HAM model.
 
+<br/>
+
+
+> ### Plot global multiannual monthly averaged biomolecule concentration
+> 1. Set up the conda environment with *conda activate environment.yml*
+> 
+> 
+> 2. run *[Macromolecules_fesom_recon_maps.py](biomolecules_map_plot/Macromolecules_fesom_recon_maps.py)* to create a 3-panel figure with the multiannual monthly averaged carbon concentration of each biomolecule.
+> 
+
+<br/>
 
 
 > ### Evaluation of biomolecule ocean carbon concentration
-> 1. run . This will create the file *[model_seawater.pkl](biom_evaluation/pd_files/model_seawater.pkl)* with the observations and model interpolated data of ocean surface carbon concentration of biomolecules.  
+> 1. run *[Biomolecules_evaluation_fesom_recon.ipynb](biom_evaluation/Biomolecules_evaluation_fesom_recon.ipynb)* to perform the interpolation of modelled biomolecules to the locations where seawater samples where collected.
+. This will create the file *[model_seawater.pkl](biom_evaluation/pd_files/model_seawater.pkl)* with the observations and model interpolated data of ocean surface carbon concentration of biomolecules.  
 > 
 > 
 > 2. run *[Macromolecules_fesom_recon_daily_monthly.ipynb](biom_evaluation/Macromolecules_fesom_recon_daily_monthly.ipynb)* to create the box plot with seawater samples and interpolated biomolecule ocean concentration for all available locations (see also [Leon-Marcos et al. (2025)](https://doi.org/10.5194/gmd-18-4183-2025).). 
@@ -45,6 +59,3 @@
 > 
 > 3. run *[Ocean_biom_box_map_plot_thesis.py](biom_evaluation/Ocean_biom_box_map_plot_thesis.py)* to create a similar plot as in point 2 but with an additional panel showing the station locations and acronyms in a map.
 > 
-
-> ### Plot global multiannual monthly averaged biomolecule concentration
-> 1. run *[Macromolecules_fesom_recon_maps.py](biomolecules_map_plot/Macromolecules_fesom_recon_maps.py)* to create a 3-panel figure with the multiannual monthly averaged carbon concentration of each biomolecule.
